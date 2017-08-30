@@ -1,0 +1,7 @@
+/.idea/
+/node_modules/
+/data/issues.json
+/data/projects.json
+/data/users.json
+config.ts
+playground

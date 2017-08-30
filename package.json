@@ -1,0 +1,29 @@
+{
+  "name": "jira-to-clubhouse-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/cli.ts"
+  },
+  "private": true,
+  "author": "Christian Theilemann",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bluebird": "^3.5.0",
+    "clubhouse-lib": "geekflyer/clubhouse-lib",
+    "core-js": "^2.5.1",
+    "jira-client": "^6.4.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.8",
+    "@types/bluebird-global": "^3.5.3",
+    "@types/node": "^8.0.28"
+  }
+}
