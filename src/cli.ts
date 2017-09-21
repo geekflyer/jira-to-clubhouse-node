@@ -55,6 +55,7 @@ if (!Object.values(Step).includes(step)) {
       await migration.archiveOldLabels();
     } else if (step === Step.updateJiraIssues) {
       // update jira issues with link to clubhouse stories
+      await migration.loadChStateAndLocalIssues();
       await migration.updateJiraWithLinksToClubhouse();
     }
   });

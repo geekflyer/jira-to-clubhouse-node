@@ -1,20 +1,24 @@
 import * as fs from 'fs';
 import jira from './jiraApi';
 
+const ensureDataDirExists = () => {fs.mkdirSync(__dirname + '/../../data')};
+
 export const downloadAllProjects = async () => {
+  ensureDataDirExists();
   const allProjects = await jira.listProjects();
   fs.writeFileSync(__dirname + '/../../data/projects.json', JSON.stringify(allProjects, undefined, '\t'));
   console.log(`${allProjects.length} projects downloaded`);
 };
 
 export const downloadAllUsers = async () => {
+  ensureDataDirExists();
   const allUsers = await jira.searchUsers({username: "%"});
   fs.writeFileSync(__dirname + '/../../data/users.json', JSON.stringify(allUsers, undefined, '\t'));
   console.log(`${allUsers.length} users downloaded`);
 };
 
 export const downloadAllIssues = async () => {
-
+  ensureDataDirExists();
   let collectedIssues = [];
 
   while (true) {
