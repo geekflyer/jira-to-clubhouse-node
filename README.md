@@ -8,13 +8,13 @@ Tool / script to migrate all your data from JIRA to clubhouse.io.
 The tool downloads all issues, epics, projects and users from a JIRA API and stores it in local `.json` files.
 Afterwards it uploads all the data to clubhouse.io by using the clubhouse API (it also uses some inofficial clubhouse APIs to migrate users).
 **It aims to migrate almost every concept that is typically used in JIRA Software (aka Agile) automatically**, so that your organization will have a very seamless and easy transition.
-It was used successfully for a migration 1300 issues, 50 epics, 30 users, 160 files and took ~15 minutes to migrate all the data.
+It was used successfully for a migration of 1300 issues, 50 epics, 30 users, 160 files and took ~15 minutes to migrate all the data.
 
 ### State / Maturity
 
 The tool is in early stage and needs better documentation and testing with multiple jira setups, but was already successfully used for a real and successful migration.
 For most people outside of clubhouse inc. (incl. me) a migration for jira to clubhouse is probably a once in a lifetime activity, so expect not too much dev activity around this tool - hopefully at some point in time clubhouse develops an official tool or uses this as a foundation.
-Support is as needed (open an github issue or create your own PR). Also I very welcome any feedback (like it just worked) as github issue.
+Support is as needed (open an github issue or create your own PR). Also I very welcome any feedback (positive and negative) as github issue.
 The documentation will be improved a bit once I have some time.
 
 ### How to use it?
@@ -24,7 +24,7 @@ The documentation will be improved a bit once I have some time.
 - You need to have node.js 8.x or higher with npm@5 or higher installed.
 - You need a jira user with access to all issues
 - You need a clubhouse admin user
-- (Ideally you should create a clubhouse test org and run the migration a few times there for testing, until you create another "production" clubhouse org)
+- Ideally you should create a clubhouse test org and run the migration a few times there for testing (name the org "yourcompany-dev1" for example), until you create another *production* clubhouse org
 
 #### Steps
 
@@ -33,16 +33,16 @@ The documentation will be improved a bit once I have some time.
 git clone https://github.com/geekflyer/jira-to-clubhouse-node.git
 npm install
 ```
-2. Create a copy of `config.template.ts` and name it `config.ts`
-3. Fill in all the required configuration in `config.ts`, in particular the jira and clubhouse credentials.
+1. Create a copy of `config.template.ts` and name it `config.ts`
+1. Fill in all the required configuration in `config.ts`, in particular the jira and clubhouse credentials.
    Note: besides some obvious things like username and password of jira and clubhouse api token, you also have to provide the clubhouse organization id and a session cookie if you want to automatically migrate users instead of manually creating them.
    This is because clubhouse has currently no official API for user creation and in order to use the inofficial API we have to use cookie based authentication etc.
    You can also modify workflow state mappings at the bottom of the file if your jira or clubhouse instance uses lots of custom states.
-4. Run `npm start downloadJira`
-5. Run `npm start migrateUsers`
-6. Run `npm start migrateData`
-7. If all the above steps are successfully completed and you want to update your jira issues with a link to it's new clubhouse story, run also `npm start updateJiraIssues`
-8. Enjoy clubhouse.io :-)
+1. Run `npm start downloadJira`
+1. Run `npm start migrateUsers`
+1. Run `npm start migrateData`
+1. If all the above steps are successfully completed and you want to update your jira issues with a link to it's new clubhouse story, run also `npm start updateJiraIssues`
+1. Enjoy clubhouse.io :-)
 
 ### Supported entities to migrate
 
