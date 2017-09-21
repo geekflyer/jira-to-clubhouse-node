@@ -1,7 +1,7 @@
 jira-to-clubhouse-node
 ======================
 
-Tool / script to migrate all your data from JIRA to clubhouse.io.
+Tool / script to migrate all your data from JIRA to [clubhouse.io](https://clubhouse.io/).
 
 ### What does it migrate / how does it work?
 
@@ -13,7 +13,7 @@ It was used successfully for a migration of 1300 issues, 50 epics, 30 users, 160
 ### State / Maturity
 
 The tool is in early stage and needs better documentation and testing with multiple jira setups, but was already successfully used for a real and successful migration.
-For most people outside of clubhouse inc. (incl. me) a migration for jira to clubhouse is probably a once in a lifetime activity, so expect not too much dev activity around this tool - hopefully at some point in time clubhouse develops an official tool or uses this as a foundation.
+For most people (incl. myself) a migration from jira to clubhouse is probably a once in a lifetime activity, so expect not too much dev activity around this tool - hopefully at some point in time clubhouse develops an official tool or uses this as a foundation.
 Support is as needed (open an github issue or create your own PR). Also I very welcome any feedback (positive and negative) as github issue.
 The documentation will be improved a bit once I have some time.
 
