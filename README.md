@@ -6,7 +6,7 @@ Tool / script to migrate all your data from JIRA to [clubhouse.io](https://clubh
 ### What does it migrate / how does it work?
 
 The tool downloads all issues, epics, projects and users from a JIRA API and stores it in local `.json` files.
-Afterwards it uploads all the data to clubhouse.io by using the clubhouse API (it also uses some inofficial clubhouse APIs to migrate users).
+Afterwards it uploads all the data to clubhouse.io by using the clubhouse API (it also uses some unofficial clubhouse APIs to migrate users).
 **It aims to migrate almost every concept that is typically used in JIRA Software (aka Agile) automatically**, so that your organization will have a very seamless and easy transition.
 It was used successfully for a migration of 1300 issues, 50 epics, 30 users, 160 files and took ~15 minutes to migrate all the data.
 
