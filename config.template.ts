@@ -16,7 +16,8 @@ export const JIRA = {
   SPRINTINFO_CUSTOM_FIELD: 'customfield_10103',
   //reference to an epic as key e.g.: `PLAT-76`
   EPIC_REF_CUSTOM_FIELD: 'customfield_10006',
-  EPIC_TITLE_CUSTOM_FIELD: 'customfield_10003'
+  EPIC_TITLE_CUSTOM_FIELD: 'customfield_10003',
+  RETRIEVE_WATCHERS: false,
 };
 
 export const CLUBHOUSE = {

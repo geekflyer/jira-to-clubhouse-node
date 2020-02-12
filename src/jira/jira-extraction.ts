@@ -1,5 +1,7 @@
 import * as fs from 'fs';
 import jira from './jiraApi';
+import { JIRA } from '../../config'; 
+import { JiraRegularIssue } from './jira-types';
 
 const ensureDataDirExists = () => {
   if (!fs.existsSync(__dirname + '/../../data')) {
@@ -28,7 +30,16 @@ export const downloadAllIssues = async () => {
   while (true) {
     let startAt = collectedIssues.length;
     let response = await jira.searchJira('', {fields: ['*all'], "maxResults": 1000, "startAt": startAt});
-    collectedIssues.push(...response.issues);
+    let issues = response.issues;
+    if (JIRA.RETRIEVE_WATCHERS) {
+      issues = await Promise.map(response.issues as JiraRegularIssue[], async issue => {
+        let watchesUrl = issue.fields.watches.self;
+        let watchesResponse = await jira.doRequest(jira.makeRequestHeader(watchesUrl));
+        issue.fields.watchers = watchesResponse.watchers;
+        return issue
+      }, {concurrency: 10});
+    }
+    collectedIssues.push(...issues);
     console.log(`downloaded ${collectedIssues.length} / ${response.total} issues`);
     if (collectedIssues.length >= response.total) {
       break;

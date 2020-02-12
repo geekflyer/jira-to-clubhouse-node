@@ -71,7 +71,8 @@ export interface JiraBaseFields {
   };
   issuelinks: null | IssueLink[],
   parent?: JiraRegularIssue;
-  attachment: Attachment[]
+  attachment: Attachment[],
+  watchers: null | User[]
 }
 
 
