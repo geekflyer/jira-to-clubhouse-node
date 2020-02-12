@@ -114,7 +114,7 @@ export class Migration {
     const owner_ids = _.compact([_.get(fields, 'assignee'), fields.creator]).map(this.getClubhouseUserIdFromJiraUsername.bind(this));
     const epic: Partial<Epic> = {
       name: fields[JIRA.EPIC_TITLE_CUSTOM_FIELD],
-      description: fields.summary + '\n' + replaceUserReferencesInComment(fields.description || '') + `\n\nOriginal Jira Epic: https://${JIRA.BASE_URL}/browse/${issue.key}`,
+      description: fields.summary + '\n' + replaceUserReferencesInComment(fields.description || '') + `\n\nOriginal Jira Epic: ${JIRA.BASE_URL}/browse/${issue.key}`,
       created_at: fields.created,
       updated_at: fields.updated,
       external_id: issue.key,
