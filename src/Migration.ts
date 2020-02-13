@@ -129,6 +129,10 @@ export class Migration {
 
     const labels = [{name: 'JIRA'}];
 
+    fields.labels.forEach(label => {
+      labels.push({name: label});
+    });
+    
     if (issue.fields[JIRA.SPRINTINFO_CUSTOM_FIELD]) {
       issue.fields[JIRA.SPRINTINFO_CUSTOM_FIELD].forEach(sprintInfo => {
         let sprintName = sprintInfo.match(/name=(.*),goal=/)[1];
