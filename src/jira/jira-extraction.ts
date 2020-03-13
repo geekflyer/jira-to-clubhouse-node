@@ -16,8 +16,11 @@ export const downloadAllProjects = async () => {
 
 export const downloadAllUsers = async () => {
   ensureDataDirExists();
-  const allUsers = await jira.searchUsers({username: "%"});
-  fs.writeFileSync(__dirname + '/../../data/users.json', JSON.stringify(allUsers, undefined, '\t'));
+  const allUsers = await jira.searchUsers({ query: { displayName: "%" } });
+  fs.writeFileSync(
+    __dirname + "/../../data/users.json",
+    JSON.stringify(allUsers, undefined, "\t")
+  );
   console.log(`${allUsers.length} users downloaded`);
 };
 
